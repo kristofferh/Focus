@@ -1,0 +1,41 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    margin: 0 auto;
+    color: @black;
+    font-family: sans-serif;
+    font-size: @basefont;
+    line-height: @baseline;
+    background: #fff url(../img/bg/body.png) 0 0 repeat;
+}
+
+h1, h2, h3, h4, h5, h6 {   
+    color: @grayDark;
+}
+
+a {
+
+    .transition(@linkColor, 0.25s, @easeOutQuart);
+
+    &:link,
+    &:visited {
+        color: @linkColor;
+    }
+
+    &:hover,
+    &:active {
+        color: @linkColorHover;
+    }
+
+}
+
+#panel {
+    background: #fff url(../img/bg/panel.png) 0 0 repeat;
+    color: @grayLight;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 300px;
+}
