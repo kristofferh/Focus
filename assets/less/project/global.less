@@ -84,8 +84,58 @@ a {
 
     .type {
         background: #fff;
-        padding: 20px;
-        .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));        
+        margin: 20px 0;
+        .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+
+        li {
+            float: left;
+            border-left: 1px solid @grayLighter;
+
+            &:first-child {
+                border-left: none;
+            }
+
+            a {
+                background-color: @white;
+                display: block;
+                padding: 10px;
+                position: relative;
+                text-decoration: none;
+                .transition(all 0.5s ease);
+                
+                &:hover {
+                    background-color: darken(@white, 3);
+                }
+
+            }
+
+            &.active {
+                
+                a {
+                    
+                    &:hover {
+                        background-color: @white;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        bottom: -3px;
+                        height: 6px;
+                        width: 6px;
+                        margin-left: -3px;
+                        background: #fff;
+                        .transform(rotateZ(45deg));
+                        .box-shadow(1px 1px 1px rgba(0, 0, 0, 0.15));
+
+                    }
+                }
+                
+            }
+
+        }
+
     }
 
 }

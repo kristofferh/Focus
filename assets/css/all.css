@@ -405,10 +405,53 @@ a:active {
 }
 #main-content .type {
   background: #fff;
-  padding: 20px;
+  margin: 20px 0;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+#main-content .type li {
+  float: left;
+  border-left: 1px solid #e7e7e7;
+}
+#main-content .type li:first-child {
+  border-left: none;
+}
+#main-content .type li a {
+  background-color: #ffffff;
+  display: block;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#main-content .type li a:hover {
+  background-color: #f7f7f7;
+}
+#main-content .type li.active a:hover {
+  background-color: #ffffff;
+}
+#main-content .type li.active a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  height: 6px;
+  width: 6px;
+  margin-left: -3px;
+  background: #fff;
+  -webkit-transform: rotatez(45deg);
+  -moz-transform: rotatez(45deg);
+  -ms-transform: rotatez(45deg);
+  -o-transform: rotatez(45deg);
+  transform: rotatez(45deg);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 #posts {
   list-style: none;
