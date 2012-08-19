@@ -1,16 +1,26 @@
 body {
-    -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     margin: 0 auto;
     color: @black;
-    font-family: sans-serif;
+    font-family: 'andale mono', 'courier new', courier, sans-serif;
     font-size: @basefont;
-    line-height: @baseline;
+    line-height: 1.4;
     background: #fff url(../img/bg/body.png) 0 0 repeat;
 }
 
-h1, h2, h3, h4, h5, h6 {   
+h1, h2, h3, h4, h5, h6 {
+    -webkit-font-smoothing: antialiased;   
     color: @grayDark;
+}
+
+h1 {
+    font-size: 66px;
+    font-family: 'myriad pro';
+    text-shadow: 0 1px white;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px white;
+    text-align: center;
 }
 
 a {
@@ -29,8 +39,23 @@ a {
 
 }
 
+#page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    .box-shadow(0 -3px 30px rgba(0, 0, 0, 0.8));
+}
+
+#container {
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
 #panel {
-    background: #fff url(../img/bg/panel.png) 0 0 repeat;
     color: @grayLight;
     top: 0;
     left: 0;
@@ -38,4 +63,74 @@ a {
     overflow: hidden;
     position: absolute;
     width: 300px;
+    .box-sizing(border-box);
+}
+
+#main-content {
+    background: #fff url(../img/bg/content.png) 0 0 repeat;
+    min-height: 100%;
+    position: relative;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    .box-shadow(-3px 0 5px rgba(0, 0, 0, 0.8));
+    .box-sizing(border-box);
+
+    .content {
+        margin: 0 auto;
+        padding: 20px 50px;
+    }
+
+    .type {
+        background: #fff;
+        padding: 20px;
+        .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));        
+    }
+
+}
+
+#posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .post {
+        background: #fff;
+        padding: 20px;
+        .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+    }
+}
+
+.media {
+    position: relative;
+
+    img {
+        max-width: 100%;
+    } 
+}
+
+.short-cuts {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            background: rgba(0, 0, 0, 0.75);
+            margin-left: 1px;
+            margin-bottom: 1px;
+            a {
+                display: block;
+                text-decoration: none;
+                height: 50px;
+                width: 50px; 
+            }
+
+        }
+    }
 }
