@@ -505,6 +505,7 @@ a:active {
   border-top: 1px solid #E8E8E8;
   box-shadow: inset 0 1px white;
   background: #F8F8F8;
+  text-shadow: 0 1px white;
 }
 #posts.grid {
   -moz-column-count: 2;
@@ -560,6 +561,30 @@ a:active {
   width: 20px;
   top: 9px;
   left: 9px;
+}
+.tags {
+  margin-top: 5px;
+}
+.tags a {
+  background: #c0c0c0;
+  color: #ffffff;
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  padding: 1px 5px;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  font-size: 11px;
+  border-radius: 2px;
+  -webkit-transition: background 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  -moz-transition: background 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  -ms-transition: background 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  -o-transition: background 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: background 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+.tags a:hover {
+  background: #818181;
 }
 /**
  * HELPERS
