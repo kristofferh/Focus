@@ -1,4 +1,4 @@
 /**
  * Focus Tumblr Theme.
  */// Namespace
-var Focus=window.Focus||{};(function(e,t,n){var r=function(t,n){!this instanceof r&&new r(t,n);this.els=e(t);this.target=e(n);this.els.on("click",e.proxy(function(t){t.preventDefault();var n=e(t.currentTarget),r=n.data("type");console.log(this);this.setType(r)},this))};r.prototype={setType:function(e){this.target.toggleClass(e)}};t.GridToggler=r})(jQuery,Focus);jQuery(function(){console.log("loaded");Focus.GridToggler(".type li","#posts")});
+var Focus=window.Focus||{};(function(e,t,n){var r=function(t,n){if(!(this instanceof r))return new r(t,n);this.els=e(t);this.target=e(n);this.els.on("click",e.proxy(this.__setDisplayType,this))};r.prototype={__setDisplayType:function(t){t.preventDefault();var n=e(t.currentTarget),r=n.data("type");r==="grid"&&!n.hasClass("active")?this.setGrid():r==="list"&&!n.hasClass("active")&&this.setList();this.els.removeClass("active");n.toggleClass("active")},setGrid:function(){this.target.removeClass("list").addClass("grid")},setList:function(){this.target.removeClass("grid").addClass("list")}};t.GridToggler=r})(jQuery,Focus);jQuery(function(){Focus.GridToggler(".type li","#posts")});

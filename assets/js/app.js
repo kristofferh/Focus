@@ -8,26 +8,40 @@ var Focus = window.Focus || {};
 (function($, exports, undefined) {
 
     var GridToggler = function(els, target) {
-        if(!this instanceof GridToggler) {
-            new GridToggler(els, target);
+        if(!(this instanceof GridToggler)) {
+            return new GridToggler(els, target);
         }
         this.els = $(els);
         this.target = $(target);
 
-        this.els.on('click', $.proxy(function(e) {
-            e.preventDefault();
-            var el = $(e.currentTarget);
-            var type = el.data('type');
-            console.log(this);
-            this.setType(type);
-        }, this));
+        this.els.on('click', $.proxy(this.__setDisplayType, this));
 
     };
 
     GridToggler.prototype = {
 
-        setType: function(type) {
-            this.target.toggleClass(type);
+        __setDisplayType: function(e) {
+            e.preventDefault();
+            var el = $(e.currentTarget);
+            var type = el.data('type');
+
+            if(type === 'grid' && !el.hasClass('active')) {
+                this.setGrid();
+            } else if(type === 'list' && !el.hasClass('active')) {
+                this.setList();
+            }
+            this.els.removeClass('active');
+            el.toggleClass('active');
+        },
+
+        setGrid: function() {
+            this.target.removeClass('list').addClass('grid');
+            // @TODO: set cookie to remember selection.
+            // @TODO: reload iframes.
+        },
+
+        setList: function() {
+            this.target.removeClass('grid').addClass('list');
         }
 
     };
@@ -37,6 +51,5 @@ var Focus = window.Focus || {};
 })(jQuery, Focus);
 
 jQuery(function() {
-    console.log('loaded');
     Focus.GridToggler('.type li', '#posts');
 });

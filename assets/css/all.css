@@ -66,12 +66,12 @@ textarea {
  * Also: hot pink! (or customize the background color to match your design)
  */
 ::-moz-selection {
-  background: #f06529;
+  background: #c3325f;
   color: #fff;
   text-shadow: none;
 }
 ::selection {
-  background: #f06529;
+  background: #c3325f;
   color: #fff;
   text-shadow: none;
 }
@@ -342,19 +342,19 @@ h1 {
   text-align: center;
 }
 a {
-  -webkit-transition: #f06529 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-  -moz-transition: #f06529 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-  -ms-transition: #f06529 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-  -o-transition: #f06529 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: #f06529 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-transition: #2766ad 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -moz-transition: #2766ad 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -ms-transition: #2766ad 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -o-transition: #2766ad 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: #2766ad 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 a:link,
 a:visited {
-  color: #f06529;
+  color: #2766ad;
 }
 a:hover,
 a:active {
-  color: #d74b0f;
+  color: #102945;
 }
 #page {
   position: absolute;
@@ -378,7 +378,7 @@ a:active {
   left: 0;
   bottom: 0;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   width: 300px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -401,7 +401,7 @@ a:active {
 }
 #main-content .content {
   margin: 0 auto;
-  padding: 20px 50px;
+  padding: 1px 50px;
 }
 #main-content .type {
   background: #fff;
@@ -410,12 +410,20 @@ a:active {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
+#main-content .type .tagline {
+  float: left;
+  line-height: 40px;
+  margin: 0 10px;
+}
+#main-content .type ul {
+  float: right;
+}
 #main-content .type li {
   float: left;
   border-left: 1px solid #e7e7e7;
 }
-#main-content .type li:first-child {
-  border-left: none;
+#main-content .type li.list a span {
+  background-position: -40px -60px;
 }
 #main-content .type li a {
   background-color: #ffffff;
@@ -431,6 +439,12 @@ a:active {
 }
 #main-content .type li a:hover {
   background-color: #f7f7f7;
+}
+#main-content .type li a span {
+  background: transparent url("../img/icons/sprite.png") 0 -60px no-repeat;
+  display: block;
+  height: 20px;
+  width: 20px;
 }
 #main-content .type li.active a:hover {
   background-color: #ffffff;
@@ -453,6 +467,25 @@ a:active {
   -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
+#logo {
+  background: #9d261d;
+  color: #fff;
+  margin-top: 20px;
+  line-height: 40px;
+  height: 40px;
+}
+.expand-panel {
+  background: #9d261d;
+  color: #fff;
+  left: 40px;
+  position: fixed;
+  top: 20px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  z-index: 100;
+}
 #posts {
   list-style: none;
   margin: 0;
@@ -460,16 +493,44 @@ a:active {
 }
 #posts .post {
   background: #fff;
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 20px 20px 0;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
+#posts .meta {
+  list-style: none;
+  margin: 20px -20px 0;
+  padding: 15px 20px;
+  border-top: 1px solid #E8E8E8;
+  box-shadow: inset 0 1px white;
+  background: #F8F8F8;
+}
+#posts.grid {
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px;
+}
+#posts.grid .post {
+  display: inline-block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .media {
   position: relative;
 }
-.media img {
+.media img,
+.media iframe {
   max-width: 100%;
+}
+.media h2 {
+  margin-top: 0;
 }
 .short-cuts {
   position: absolute;
@@ -488,9 +549,18 @@ a:active {
 }
 .short-cuts ul li a {
   display: block;
+  position: relative;
   text-decoration: none;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+}
+.short-cuts ul li a span {
+  background: transparent url(../img/icons/sprite.png) 0 0 no-repeat;
+  height: 20px;
+  position: absolute;
+  width: 20px;
+  top: 9px;
+  left: 9px;
 }
 /**
  * HELPERS
@@ -582,12 +652,9 @@ a:active {
   /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
       html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
 }
-@media only screen and (min-width: 768px) {
-  
-}
 @media screen and (max-width: 1265px) and (min-width: 480px) {
   #main-content .content {
-    width: 770px;
+    width: 740px;
   }
 }
 /**
