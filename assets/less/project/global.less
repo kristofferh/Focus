@@ -229,7 +229,9 @@ a {
 }
 
 .media {
+    
     position: relative;
+    overflow: hidden;
 
     img, iframe {
         max-width: 100%;
@@ -238,6 +240,23 @@ a {
     h2 {
         margin-top: 0;
     }
+
+    &:hover {
+
+        ul li.reblog {
+            top: 0;
+        }
+
+        ul li.like {
+            top: 0;
+        }
+
+        ul li.permalink {
+            right: 0;
+        }
+
+    }
+
 }
 
 .short-cuts {
@@ -252,9 +271,26 @@ a {
 
         li {
             background: rgba(0, 0, 0, 0.75);
-            margin-left: 1px;
-            margin-bottom: 1px;
-            
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            .transition(all 0.2s @easeInOutQuart);
+
+            &.reblog {
+                right: 41px;
+            }
+
+            &.like {
+                right: 0;
+                .transition(all 0.2s @easeInOutQuart 0.15s);
+            }
+
+            &.permalink {
+                top: 41px;
+                right: -40px;
+                .transition(all 0.2s @easeInOutQuart 0.1s);
+            }
+
             a {
                 display: block;
                 position: relative;

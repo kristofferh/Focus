@@ -524,6 +524,7 @@ a:active {
 }
 .media {
   position: relative;
+  overflow: hidden;
 }
 .media img,
 .media iframe {
@@ -531,6 +532,15 @@ a:active {
 }
 .media h2 {
   margin-top: 0;
+}
+.media:hover ul li.reblog {
+  top: 0;
+}
+.media:hover ul li.like {
+  top: 0;
+}
+.media:hover ul li.permalink {
+  right: 0;
 }
 .short-cuts {
   position: absolute;
@@ -544,8 +554,34 @@ a:active {
 }
 .short-cuts ul li {
   background: rgba(0, 0, 0, 0.75);
-  margin-left: 1px;
-  margin-bottom: 1px;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  -webkit-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+  -ms-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.short-cuts ul li.reblog {
+  right: 41px;
+}
+.short-cuts ul li.like {
+  right: 0;
+  -webkit-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+  -moz-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+  -ms-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+  -o-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+  transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+}
+.short-cuts ul li.permalink {
+  top: 41px;
+  right: -40px;
+  -webkit-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+  -moz-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+  -ms-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+  -o-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+  transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
 }
 .short-cuts ul li a {
   display: block;
