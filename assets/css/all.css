@@ -313,6 +313,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/**
+ * Project Specific styles.
+ */
 body {
   text-rendering: optimizeLegibility;
   margin: 0 auto;
@@ -387,9 +390,7 @@ a:active {
   background: #ffffff url(../img/bg/content.png) 0 0 repeat;
   min-height: 100%;
   position: relative;
-  left: 40px;
-  top: 0;
-  bottom: 0;
+  margin-left: 40px;
   width: 100%;
   -webkit-box-shadow: -3px 0 5px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: -3px 0 5px rgba(0, 0, 0, 0.8);
@@ -476,7 +477,7 @@ a:active {
 .expand-panel {
   background: #9d261d;
   color: #fff;
-  left: 40px;
+  left: auto;
   position: fixed;
   top: 20px;
   height: 40px;
@@ -484,6 +485,9 @@ a:active {
   text-align: center;
   width: 40px;
   z-index: 100;
+  -webkit-box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.15);
 }
 #posts {
   list-style: none;
@@ -497,6 +501,14 @@ a:active {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+#posts .post article {
+  font-family: Georgia, Times, serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+#posts .post h2 {
+  margin-top: 0;
 }
 #posts .meta {
   list-style: none;
@@ -525,13 +537,19 @@ a:active {
 .media {
   position: relative;
   overflow: hidden;
+  text-align: center;
+}
+.media.audio {
+  background: #333;
+  padding: 20px;
+  -webkit-box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.8);
 }
 .media img,
 .media iframe {
   max-width: 100%;
-}
-.media h2 {
-  margin-top: 0;
+  vertical-align: bottom;
 }
 .media:hover ul li.reblog {
   top: 0;

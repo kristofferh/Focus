@@ -1,3 +1,11 @@
+/**
+ * Project Specific styles.
+ */
+
+// * {
+//     .box-sizing(border-box);
+// }
+
 body {
     text-rendering: optimizeLegibility;
     margin: 0 auto;
@@ -70,9 +78,9 @@ a {
     background: #fff url(../img/bg/content.png) 0 0 repeat;
     min-height: 100%;
     position: relative;
-    left: 40px;
-    top: 0;
-    bottom: 0;
+    margin-left: 40px;
+    // top: 0;
+    // bottom: 0;
     width: 100%;
     .box-shadow(-3px 0 5px rgba(0, 0, 0, 0.8));
     .box-sizing(border-box);
@@ -176,7 +184,7 @@ a {
 .expand-panel {
     background: @red;
     color: #fff;
-    left: 40px;
+    left: auto;
     position: fixed;
     top: 20px;
     height: 40px;
@@ -184,6 +192,7 @@ a {
     text-align: center;
     width: 40px;
     z-index: 100;
+    .box-shadow(-1px 2px 2px rgba(0, 0, 0, 0.15));
 }
 
 #posts {
@@ -196,6 +205,16 @@ a {
         margin-bottom: 20px;
         padding: 20px 20px 0;
         .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+
+        article {
+            font-family: Georgia, Times, serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
 
     }
 
@@ -229,17 +248,20 @@ a {
 }
 
 .media {
-    
     position: relative;
     overflow: hidden;
+    text-align: center;
+
+    &.audio {
+        background: #333;
+        padding: 20px;
+        .box-shadow(inset 0 1px 7px rgba(0, 0, 0, 0.8));
+    }
 
     img, iframe {
         max-width: 100%;
+        vertical-align: bottom;
     } 
-
-    h2 {
-        margin-top: 0;
-    }
 
     &:hover {
 
@@ -256,7 +278,6 @@ a {
         }
 
     }
-
 }
 
 .short-cuts {
