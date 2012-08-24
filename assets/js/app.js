@@ -50,6 +50,33 @@ var Focus = window.Focus || {};
 
 })(jQuery, Focus);
 
+(function($, exports, undefined) {
+
+    var PanelToggler = function(els, target) {
+        if(!(this instanceof PanelToggler)) {
+            return new PanelToggler(els, target);
+        }
+        this.els = $(els);
+        this.target = $(target);
+
+        this.els.on('click', $.proxy(function(e) {
+            if(this.els.hasClass('open')) {
+                this.els.html('+').removeClass('open');
+                this.target.removeClass('open');
+            } else {
+                this.els.html('-').addClass('open');
+                this.target.addClass('open');
+            }
+        }, this));
+
+    };
+
+    exports.PanelToggler = PanelToggler;
+
+})(jQuery, Focus);
+
+
 jQuery(function() {
     Focus.GridToggler('.type li', '#posts');
+    Focus.PanelToggler('.expand-panel', '#main-content');
 });

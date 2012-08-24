@@ -78,12 +78,17 @@ a {
     background: #fff url(../img/bg/content.png) 0 0 repeat;
     min-height: 100%;
     position: relative;
-    margin-left: 40px;
+    margin-left: 10px;
     // top: 0;
     // bottom: 0;
     width: 100%;
     .box-shadow(-3px 0 5px rgba(0, 0, 0, 0.8));
     .box-sizing(border-box);
+    .transition(margin-left 0.25s linear);
+
+    &.open {
+        margin-left: 250px;
+    }
 
     .content {
         margin: 0 auto;
@@ -173,26 +178,65 @@ a {
 
 }
 
-#logo {
-    background: @red;
+#ribbon {
+    background: darken(@red, 5);
     color: #fff;
     margin-top: 20px;
     line-height: 40px;
     height: 40px;
 }
 
+#search {
+
+    input {
+        background: transparent;
+        border: none;
+        color: @white;
+        font-family: Georgia, Times, serif;
+        font-style: italic;
+        float: left;
+        margin: 10px 10px 0 10px;
+        outline: none;
+        padding: 3px;
+        width: 200px;
+
+        &::-webkit-input-placeholder {
+            color: darken(@white, 10);
+        }
+
+        &:hover::-webkit-input-placeholder {
+            color: @white;
+        }
+
+        &:-moz-placeholder {
+            color: darken(@white, 10);
+        }
+
+        &:hover:-moz-placeholder {
+            color: @white;
+        }
+
+    }
+
+}
+
 .expand-panel {
     background: @red;
-    color: #fff;
+    cursor: pointer;
+    color: darken(@white, 5);
     left: auto;
     position: fixed;
-    top: 20px;
+    top: 18px;
     height: 40px;
     line-height: 40px;
     text-align: center;
     width: 40px;
     z-index: 100;
     .box-shadow(-1px 2px 2px rgba(0, 0, 0, 0.15));
+
+    &:hover {
+        color: @white;
+    }
 
     &:after {
         content: '';
