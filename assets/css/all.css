@@ -489,6 +489,24 @@ a:active {
   -moz-box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.15);
   box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.15);
 }
+.expand-panel:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: none;
+  border-right: 0px solid #9d261d;
+  border-left: 20px solid transparent;
+  border-top: 20px solid #9d261d;
+  position: absolute;
+  top: 0px;
+  right: -20px;
+  border-bottom: 20px solid #9d261d;
+  -webkit-transform: rotatey(180deg);
+  -moz-transform: rotatey(180deg);
+  -ms-transform: rotatey(180deg);
+  -o-transform: rotatey(180deg);
+  transform: rotatey(180deg);
+}
 #posts {
   list-style: none;
   margin: 0;
