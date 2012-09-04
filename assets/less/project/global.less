@@ -10,7 +10,7 @@ body {
     text-rendering: optimizeLegibility;
     margin: 0 auto;
     color: @black;
-    font-family: 'andale mono', 'courier new', courier, sans-serif;
+    font-family: @sansserif;
     font-size: @basefont;
     line-height: 1.4;
     background: #fff url(../img/bg/body.png) 0 0 repeat;
@@ -22,13 +22,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 66px;
-    font-family: 'myriad pro';
-    text-shadow: 0 1px white;
-    color: #555;
-    border-bottom: 1px solid #ccc;
-    box-shadow: 0 1px white;
+    background: url(http://24.media.tumblr.com/avatar_8fbe82e123e1_128.png) 50% 50% no-repeat;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin: 18px auto 0;
     text-align: center;
+    border-radius: 50%;
+    border: 5px solid @white;
+    .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+
+    span {
+        position: absolute;
+        top: -10000px;
+        left: -10000px;
+    }
+
 }
 
 a {
@@ -53,11 +62,11 @@ a {
     top: 0;
     bottom: 0;
     right: 0;
-    .box-shadow(0 -3px 30px rgba(0, 0, 0, 0.8));
+    //.box-shadow(0 -3px 30px rgba(0, 0, 0, 0.8));
 }
 
 #container {
-    height: 100%;
+    //height: 100%;
     overflow-x: hidden;
     position: relative;
     width: 100%;
@@ -75,11 +84,11 @@ a {
 }
 
 #main-content {
-    background: #fff url(../img/bg/content.png) 0 0 repeat;
+    //background: #fff url(../img/bg/content.png) 0 0 repeat;
     min-height: 100%;
     position: relative;
     margin-left: 10px;
-    width: 100%;
+    //width: 100%;
     .box-shadow(-3px 0 5px rgba(0, 0, 0, 0.8));
     .box-sizing(border-box);
     .transition(margin-left 0.35s @easeInOutExpo);
@@ -90,7 +99,10 @@ a {
 
     .content {
         margin: 0 auto;
+        min-width: 300px;
         padding: 1px 50px;
+        position: relative;
+        z-index: 10;
     }
 
     .type {
@@ -176,6 +188,23 @@ a {
 
 }
 
+.custom-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.custom-bg {
+    background: url(../img/bg/content.png) 0 0 repeat;
+    background: transparent url(http://globalyodel.com/wp-content/uploads/2012/08/Hong-Kong-by-Alex-Ogle-for-Global-Yodel-900x900.jpg) 0 0 repeat;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+
 #ribbon {
     background: darken(@red, 5);
     color: #fff;
@@ -190,7 +219,7 @@ a {
         background: transparent;
         border: none;
         color: @white;
-        font-family: Georgia, Times, serif;
+        font-family: @serif;
         font-style: italic;
         float: left;
         margin: 10px;
@@ -257,7 +286,74 @@ a {
 
 }
 
+.loader {
+
+    position: fixed;
+    bottom: 8px;
+    right: -30px;
+    z-index: 100;
+    .transition(all 0.35s cubic-bezier(0.680, -0.550, 0.265, 1.550));
+
+    &.active {
+        right: 8px;
+    }
+
+    .block {
+        background: @red;
+        float: left;
+        height: 10px;
+        margin: 0 1px 1px 0;
+        opacity: 0.1;
+        width: 10px;
+        .animation(opaciter 0.5s infinite alternate linear);
+        
+        &:nth-child(2) {
+            .animation-delay(0.25s);
+        }
+        &:nth-child(4) {
+            .animation-delay(0.75s);
+        }
+        &:nth-child(3) {
+            .animation-delay(1.5s);
+        }
+
+        &:nth-child(2n + 1) {
+            clear: both;
+        }
+
+    }
+
+}
+
+@-webkit-keyframes opaciter {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes opaciter {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes opaciter {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 .secondary {
+    font-family: @serif;
     padding-top: 10px;
 
     ul {
@@ -347,6 +443,7 @@ a {
     position: relative;
     overflow: hidden;
     text-align: center;
+    z-index: 1;
 
     &.audio {
         background: #333;

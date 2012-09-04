@@ -29,8 +29,8 @@
 				<aside id="panel">
 					<div id="ribbon">
 						<div class="search-field clearfix">
-							<form action="#" id="search">
-								<input type="text" name="s" id="s" placeholder="Search..." style="display: block; ">
+							<form action="/search" method="get" id="search">
+								<input type="text" name="q" id="q" placeholder="{lang:Search}...">
 							</form>
 						</div>
 
@@ -49,7 +49,9 @@
 						<a class="expand-panel">+</a>
 					</div>
 					<div class="content">
-						<!-- <h1>Kris</h1> -->
+						<h1>
+							<span>Kris</span>
+						</h1>
 						<header>
 							<nav class="type clearfix">
 								<p class="tagline">Tagline goes here and stuff</p>
@@ -156,11 +158,11 @@
 									<h2>Stuff</h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta massa id nisi tincidunt euismod. Maecenas feugiat, metus non pharetra tempor, neque velit elementum quam, id pretium ipsum turpis eu est. Morbi diam tellus, adipiscing vitae convallis nec, vehicula et tellus. Praesent at consequat libero. Maecenas non diam ut mi lobortis convallis sit amet vel magna. Aenean volutpat sagittis odio, a sagittis tellus faucibus vitae. Vestibulum elementum arcu eget dolor iaculis nec aliquet nibh pharetra.</p>
 
-<p>Aliquam vel lacus urna. Integer ultrices, nisi sed consectetur luctus, ante tellus pharetra enim, sit amet consequat nibh arcu at arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis dignissim orci. Etiam elementum egestas elementum. Nam sed lorem nec mi vehicula imperdiet. Maecenas pulvinar justo ac lorem molestie id ullamcorper sapien lobortis. Vivamus sollicitudin odio eget tellus congue varius. Nullam id justo nec sem condimentum lobortis non sed lorem. Sed faucibus faucibus odio a consequat. Donec dapibus purus eget nulla eleifend fermentum.</p>
+									<p>Aliquam vel lacus urna. Integer ultrices, nisi sed consectetur luctus, ante tellus pharetra enim, sit amet consequat nibh arcu at arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis dignissim orci. Etiam elementum egestas elementum. Nam sed lorem nec mi vehicula imperdiet. Maecenas pulvinar justo ac lorem molestie id ullamcorper sapien lobortis. Vivamus sollicitudin odio eget tellus congue varius. Nullam id justo nec sem condimentum lobortis non sed lorem. Sed faucibus faucibus odio a consequat. Donec dapibus purus eget nulla eleifend fermentum.</p>
 
-<p>Donec ultricies ultricies sodales. Pellentesque porta iaculis risus, quis varius purus laoreet ut. Donec a nunc eros, in convallis sapien. Proin urna enim, rutrum ac condimentum ut, faucibus non diam. Donec quis odio id justo interdum laoreet. Suspendisse massa lectus, eleifend ut molestie quis, auctor adipiscing turpis. Duis ullamcorper ipsum et nisi rhoncus non tincidunt dolor suscipit. Aenean dictum hendrerit erat at scelerisque. Donec vitae neque at ante mollis hendrerit. Nunc consequat arcu dui, ut aliquet mi. Vivamus a condimentum nisi. Nullam metus libero, egestas id consequat non, egestas imperdiet massa. Etiam eget neque id felis porta lacinia. Nulla in libero nec risus iaculis condimentum in non urna. Etiam nibh nisi, dictum et tristique sed, posuere at sem.</p>
+									<p>Donec ultricies ultricies sodales. Pellentesque porta iaculis risus, quis varius purus laoreet ut. Donec a nunc eros, in convallis sapien. Proin urna enim, rutrum ac condimentum ut, faucibus non diam. Donec quis odio id justo interdum laoreet. Suspendisse massa lectus, eleifend ut molestie quis, auctor adipiscing turpis. Duis ullamcorper ipsum et nisi rhoncus non tincidunt dolor suscipit. Aenean dictum hendrerit erat at scelerisque. Donec vitae neque at ante mollis hendrerit. Nunc consequat arcu dui, ut aliquet mi. Vivamus a condimentum nisi. Nullam metus libero, egestas id consequat non, egestas imperdiet massa. Etiam eget neque id felis porta lacinia. Nulla in libero nec risus iaculis condimentum in non urna. Etiam nibh nisi, dictum et tristique sed, posuere at sem.</p>
 
-<p>Nulla non condimentum purus. Ut venenatis vehicula dictum. Maecenas fermentum viverra mi a imperdiet. Nunc et nibh vitae mauris gravida fringilla vel sed lacus. Phasellus vulputate nulla eget mauris commodo ullamcorper eu ut sapien. Aliquam erat volutpat. Sed auctor neque ac metus consectetur quis posuere massa placerat. Aliquam sagittis mollis mauris eu porttitor. Fusce varius enim sed nunc lacinia et congue dui varius. Sed viverra hendrerit facilisis. Etiam eleifend vehicula arcu, eget tempus turpis posuere a. Suspendisse id tellus eget eros lobortis accumsan in sed velit. Nulla pulvinar tellus nec tellus iaculis porttitor. Vestibulum ut tortor sed eros volutpat lacinia vitae et felis.</p>
+									<p>Nulla non condimentum purus. Ut venenatis vehicula dictum. Maecenas fermentum viverra mi a imperdiet. Nunc et nibh vitae mauris gravida fringilla vel sed lacus. Phasellus vulputate nulla eget mauris commodo ullamcorper eu ut sapien. Aliquam erat volutpat. Sed auctor neque ac metus consectetur quis posuere massa placerat. Aliquam sagittis mollis mauris eu porttitor. Fusce varius enim sed nunc lacinia et congue dui varius. Sed viverra hendrerit facilisis. Etiam eleifend vehicula arcu, eget tempus turpis posuere a. Suspendisse id tellus eget eros lobortis accumsan in sed velit. Nulla pulvinar tellus nec tellus iaculis porttitor. Vestibulum ut tortor sed eros volutpat lacinia vitae et felis.</p>
 								</article>
 								<ul class="meta">
 									<li>Posted March 15, 2012</li>
@@ -193,9 +195,18 @@
 							</li>
 						</ul>
 					</div>
+					<div class="custom-bg-wrapper">
+						<div class="custom-bg"></div>
+					</div>
 				</div>
 
 			</div>
+		</div>
+		<div class="loader">
+			<div class="block"></div>
+			<div class="block"></div>
+			<div class="block"></div>
+			<div class="block"></div>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 		<script>!window.jQuery && document.write(unescape('%3Cscript src="assets/js/lib/jquery-1.7.2.min.js"%3E%3C/script%3E'));</script>
