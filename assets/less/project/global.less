@@ -18,7 +18,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;   
-    color: @grayDark;
 }
 
 h1 {
@@ -32,6 +31,12 @@ h1 {
     border: 5px solid @white;
     .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
 
+    a {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
     span {
         position: absolute;
         top: -10000px;
@@ -42,7 +47,7 @@ h1 {
 
 a {
 
-    .transition(@linkColor, 0.25s, @easeOutQuart);
+    .transition(color 0.25s @easeOutQuart);
 
     &:link,
     &:visited {
@@ -368,7 +373,7 @@ a {
             a {
                 background: rgba(0, 0, 0, 0.1);
                 color: rgba(255, 255, 255, 0.35);
-                padding: 0 10px;
+                padding: 10px;
                 text-decoration: none;
                 text-shadow: 0 -1px rgba(2, 2, 2, 0.8);
                 display: block;
@@ -406,6 +411,7 @@ a {
 
         h2 {
             margin-top: 0;
+            font-size: 1.5em;
         }
 
     }
@@ -447,7 +453,6 @@ a {
 
     &.audio {
         background: #333;
-        padding: 20px;
         .box-shadow(inset 0 1px 7px rgba(0, 0, 0, 0.8));
     }
 
@@ -470,6 +475,48 @@ a {
             right: 0;
         }
 
+    }
+}
+
+.quote {
+    blockquote {
+        font-size: 21px;
+        font-weight: bold;
+        margin: 0 0 1em;
+
+        p.quotes {
+            margin: 0 0 0.5em;
+            -webkit-font-smoothing: antialiased;   
+        }
+
+        footer {
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+    }
+}
+
+.link {
+
+    p {
+        margin-top: 0;
+    }
+
+    a.link {
+        font-size: 21px;
+        font-style: italic;
+        font-weight: bold;
+        margin: 0 0 1em;
+        position: relative;
+
+        &:after {
+            content: '\21e2';
+            font-style: normal;
+            padding-left: 2px;
+            position: absolute;
+            text-decoration: none;
+        }
     }
 }
 
