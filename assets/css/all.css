@@ -576,6 +576,25 @@ a:active {
   -o-transform: rotatey(180deg);
   transform: rotatey(180deg);
 }
+.post-nav {
+  right: 0;
+  position: fixed;
+  top: 50%;
+  z-index: 100;
+}
+.post-nav ul {
+  list-style: none;
+}
+.post-nav ul li {
+  text-align: right;
+}
+.post-nav ul li a {
+  background: #9d261d;
+  color: #ffffff;
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+}
 .loader {
   position: fixed;
   bottom: 8px;
