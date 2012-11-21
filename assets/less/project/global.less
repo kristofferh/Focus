@@ -29,7 +29,13 @@ h1 {
     text-align: center;
     border-radius: 50%;
     border: 5px solid @white;
+    top: 0;
+    .transition(top 0.25s @easeInBack);
     .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+
+    &:active {
+        top: 3px;
+    }
 
     a {
         display: block;
@@ -88,6 +94,11 @@ a {
     .box-sizing(border-box);
 }
 
+// Make sure that css columns are supported for the type switcher.
+html.csscolumns #main-content .type ul {
+    display: block;
+}
+
 #main-content {
     //background: #fff url(../img/bg/content.png) 0 0 repeat;
     min-height: 100%;
@@ -122,6 +133,7 @@ a {
         }
 
         ul {
+            display: none;
             float: right;
         }
         

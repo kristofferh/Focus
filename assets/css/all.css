@@ -342,9 +342,18 @@ h1 {
   text-align: center;
   border-radius: 50%;
   border: 5px solid #ffffff;
+  top: 0;
+  -webkit-transition: top 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -moz-transition: top 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -ms-transition: top 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -o-transition: top 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: top 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+h1:active {
+  top: 3px;
 }
 h1 a {
   display: block;
@@ -395,6 +404,9 @@ a:active {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html.csscolumns #main-content .type ul {
+  display: block;
+}
 #main-content {
   min-height: 100%;
   position: relative;
@@ -434,6 +446,7 @@ a:active {
   margin: 0 10px;
 }
 #main-content .type ul {
+  display: none;
   float: right;
 }
 #main-content .type li {
@@ -981,7 +994,7 @@ a:active {
     display: none;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   #main-content .content {
     max-width: 300px;
   }
