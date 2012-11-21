@@ -13,13 +13,23 @@
 
 /* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome) */
 @media screen and (max-device-width: 480px) {
-    /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
-    html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+    /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you */
+    // html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
+    #main-content .content {
+        min-width: 240px;
+        padding: 10px 20px;
+    }
+    .type li {
+        display: none;
+    }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (max-width: 600px) {
     #main-content .content {
-        // min-width: 400px;
+        max-width: 300px;
+    }
+    .type li {
+        display: none;
     }
 }
 
