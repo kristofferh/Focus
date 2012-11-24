@@ -95,10 +95,12 @@ var Focus = window.Focus || {};
         this.metadata = this.$el.data('plugin-options');
         this.config = $.extend({}, Pager.defaults, this.options, this.metadata);
         
+        this.loadingData = false;
+
         this.$doc = $(document);
 
         this.$el.on('scroll', $.proxy(this._debounce(function() {
-            if(this._nearBottom()) {
+            if(this._nearBottom() && !this.loadingData) {
                 this.nextPage();
             } else {
                 this.config.loader.removeClass('active');
@@ -155,6 +157,20 @@ var Focus = window.Focus || {};
 
         nextPage: function() {
             this.config.loader.addClass('active');
+            this.loadingData = true;
+            var xhr = $.ajax({
+                url: 'index2.html',
+                dataType: 'html'
+            });
+
+            xhr.done($.proxy(function(data) {
+                this.loadingData = false;
+                this.config.loader.removeClass('active');
+                var $posts = $(data).find('#posts').children();
+                $posts.each($.proxy(function(index, $post) {
+                    this.config.target.append($post);
+                }, this));
+            }, this));
         }
 
     };
@@ -165,7 +181,8 @@ var Focus = window.Focus || {};
         bufferPx: 250,
         pagination: $('#pagination'),
         loader: $('.loader'),
-        scrollDelay: 50
+        scrollDelay: 50,
+        target: $('#posts')
     };
     
     Pager.register = function(instance) {
