@@ -129,7 +129,7 @@ html.csscolumns #main-content .type ul {
         .tagline {
             float: left;
             line-height: 40px;
-            margin: 0 10px;
+            margin: 0 20px;
         }
 
         ul {
@@ -203,6 +203,34 @@ html.csscolumns #main-content .type ul {
 
     }
 
+}
+
+#pagination {
+    background: #fff;
+    margin: 20px 0;
+    .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+
+    ul {
+        list-style: none;
+
+        li {
+            padding: 10px 20px;
+        }
+
+    }
+}
+
+body.infinite #pagination {
+    display: none;
+}
+
+
+#previous {
+    float: left;
+}
+
+#next {
+    float: right;
 }
 
 .custom-bg-wrapper {

@@ -443,7 +443,7 @@ html.csscolumns #main-content .type ul {
 #main-content .type .tagline {
   float: left;
   line-height: 40px;
-  margin: 0 10px;
+  margin: 0 20px;
 }
 #main-content .type ul {
   display: none;
@@ -497,6 +497,28 @@ html.csscolumns #main-content .type ul {
   -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+#pagination {
+  background: #fff;
+  margin: 20px 0;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+#pagination ul {
+  list-style: none;
+}
+#pagination ul li {
+  padding: 10px 20px;
+}
+body.infinite #pagination {
+  display: none;
+}
+#previous {
+  float: left;
+}
+#next {
+  float: right;
 }
 .custom-bg-wrapper {
   position: absolute;

@@ -86,10 +86,9 @@ var Focus = window.Focus || {};
         }
 
         var $win = $(window);
-        console.log($win.width());
-        $win.on('resize', $.proxy(function(e) {
-            console.log($win.width(), $win.height());
-        }, this));
+        // $win.on('resize', $.proxy(function(e) {
+        //     console.log($win.width(), $win.height());
+        // }, this));
 
         var mobileSize = window.matchMedia("(max-width: 600px)");
         var desktopSize = window.matchMedia("(min-width: 601px)");
