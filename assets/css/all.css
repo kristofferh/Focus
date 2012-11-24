@@ -397,9 +397,10 @@ a:active {
   top: 0;
   left: 0;
   bottom: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: fixed;
-  width: 300px;
+  width: 265px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -510,9 +511,6 @@ html.csscolumns #main-content .type ul {
 }
 #pagination ul li {
   padding: 10px 20px;
-}
-body.infinite #pagination {
-  display: none;
 }
 #previous {
   float: left;

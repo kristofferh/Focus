@@ -80,15 +80,32 @@ var Focus = window.Focus || {};
 
 (function($, exports, undefined) {
 
-    var Resizer = function() {
-        if(!(this instanceof Resizer)) {
-            return new Resizer();
+    var Pager = function(el, options) {
+        if(!(this instanceof Pager)) {
+            return new Pager(el, options);
         }
 
-        var $win = $(window);
-        // $win.on('resize', $.proxy(function(e) {
-        //     console.log($win.width(), $win.height());
-        // }, this));
+        // Extended version of the element.
+        this.el = (typeof el === 'string') ? $(el).get(0) : el;
+        this.$el = $(el); // jQuery object.
+        this.options = options;
+        
+        // Take advantage of HTML5 data attributes to support customization of
+        // the plugin on a per-element basis.
+        this.metadata = this.$el.data('plugin-options');
+        this.config = $.extend({}, Pager.defaults, this.options, this.metadata);
+        
+        this.$doc = $(document);
+
+        this.$el.on('scroll', $.proxy(this._debounce(function() {
+            if(this._nearBottom()) {
+                this.nextPage();
+            } else {
+                this.config.loader.removeClass('active');
+            }
+        }, this.config.scrollDelay), this));
+
+        this.config.pagination.addClass('visuallyhidden');
 
         var mobileSize = window.matchMedia("(max-width: 600px)");
         var desktopSize = window.matchMedia("(min-width: 601px)");
@@ -103,15 +120,67 @@ var Focus = window.Focus || {};
             $('.type li').show();
         });
 
-    };
-
-    Resizer.prototype = {
-
-
+        Pager.register(this);
+        return this;
 
     };
 
-    exports.Resizer = Resizer;
+    Pager.prototype = {
+
+        /**
+         * Debounce. Call method only once, after a delay.
+         * @param {Function} callback [description]
+         * @param {Number} delay How long to wait before calling the function.
+         * @return {Function} Returns a new function.
+         */
+        _debounce: function(callback, delay) {
+            var throttleTimout = null;
+            return function() {
+                clearTimeout(throttleTimout);
+                throttleTimout = setTimeout($.proxy(function() {
+                    callback.apply(this);
+                }, this), delay);
+            };
+        },
+
+        /**
+         * Check if we're close to the bottom of the page.
+         * @return {Boolean}
+         */
+        _nearBottom: function() {
+            var offset = 0 + this.$doc.height() - this.$el.height() - this.$el.scrollTop();
+            var originalOffset = this.$doc.height() - this.config.pagination.offset().top;
+            return ((offset - this.config.bufferPx) < originalOffset);
+        },
+
+        nextPage: function() {
+            this.config.loader.addClass('active');
+        }
+
+    };
+
+    Pager.instances = [];
+
+    Pager.defaults = {
+        bufferPx: 250,
+        pagination: $('#pagination'),
+        loader: $('.loader'),
+        scrollDelay: 50
+    };
+    
+    Pager.register = function(instance) {
+        this.instances.push(instance);
+    };
+
+    // Plugify.
+    $.fn.pager = function(options) {
+        return this.each(function() {
+            new Pager(this, options);
+        });
+    };
+
+
+    exports.Pager = Pager;
 
 })(jQuery, Focus);
 
@@ -119,5 +188,5 @@ var Focus = window.Focus || {};
 jQuery(function() {
     Focus.GridToggler('.type li', '#posts');
     Focus.PanelToggler('.expand-panel', '#main-content');
-    Focus.Resizer();
+    Focus.Pager(window);
 });
