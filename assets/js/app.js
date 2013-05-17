@@ -89,12 +89,12 @@ var Focus = window.Focus || {};
         this.el = (typeof el === 'string') ? $(el).get(0) : el;
         this.$el = $(el); // jQuery object.
         this.options = options;
-        
+
         // Take advantage of HTML5 data attributes to support customization of
         // the plugin on a per-element basis.
         this.metadata = this.$el.data('plugin-options');
         this.config = $.extend({}, Pager.defaults, this.options, this.metadata);
-        
+
         this.loadingData = false;
 
         this.$doc = $(document);
@@ -103,7 +103,7 @@ var Focus = window.Focus || {};
             if(this._nearBottom() && !this.loadingData) {
                 this.nextPage();
             } else {
-                this.config.loader.removeClass('active');
+                //this.config.loader.removeClass('active');
             }
         }, this.config.scrollDelay), this));
 
@@ -165,7 +165,10 @@ var Focus = window.Focus || {};
 
             xhr.done($.proxy(function(data) {
                 this.loadingData = false;
-                this.config.loader.removeClass('active');
+                setTimeout($.proxy(function() {
+                    this.config.loader.removeClass('active');
+                }, this), 500);
+                
                 var $posts = $(data).find('#posts').children();
                 $posts.each($.proxy(function(index, $post) {
                     this.config.target.append($post);
