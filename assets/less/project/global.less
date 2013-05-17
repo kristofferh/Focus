@@ -22,16 +22,17 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     background: transparent 50% 50% no-repeat;
+    background-size: 64px 64px;
     position: relative;
-    height: 100px;
-    width: 100px;
+    height: 64px;
+    width: 64px;
     margin: 18px auto 0;
     text-align: center;
     border-radius: 50%;
-    border: 5px solid @white;
+    border: 2px solid @white;
     top: 0;
     .transition(top 0.25s @easeInBack);
-    .box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+    .box-shadow(0 1px 5px rgba(0, 0, 0, 0.15));
 
     &:active {
         top: 3px;
